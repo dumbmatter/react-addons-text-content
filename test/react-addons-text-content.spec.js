@@ -73,3 +73,10 @@ test('array component', assert => {
 
   assert.is(textContent(Com), `abcxy`)
 })
+
+test('component with internal text', assert => {
+  const Com = () => <span>Hello World</span>
+
+  assert.is(textContent(<span>Hello World</span>), `Hello World`) // This passes
+  assert.is(textContent(<Com />), `Hello World`) // This fails
+})
